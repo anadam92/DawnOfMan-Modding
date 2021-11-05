@@ -4,6 +4,7 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{A409933E-BD42-4B79-9013-88BBCBA8346F}"
 	ProjectSection(SolutionItems) = preProject
 		Libraries\0Harmony.dll = Libraries\0Harmony.dll
+		Libraries\0Harmony.xml = Libraries\0Harmony.xml
 		Libraries\Assembly-CSharp.dll = Libraries\Assembly-CSharp.dll
 		Libraries\UnityEngine.CoreModule.dll = Libraries\UnityEngine.CoreModule.dll
 		Libraries\UnityEngine.dll = Libraries\UnityEngine.dll
