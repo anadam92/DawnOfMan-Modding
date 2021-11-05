@@ -1,0 +1,8 @@
+{
+	"Id": "anadam92.IndependentPause",
+	"DisplayName": "Independent Pause",
+	"Author": "anadam92",
+	"Version": "1.0.0",
+	"AssemblyName": "IndependentPause.dll",
+	"EntryMethod": "IndependentPause.Main.Load"
+}

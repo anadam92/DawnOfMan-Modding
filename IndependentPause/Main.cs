@@ -4,16 +4,17 @@ using UnityEngine;
 using UnityModManagerNet;
 using System.Reflection;
 
-namespace TestMod
+namespace IndependentPause
 {
 
-    static class Main
+    public static class Main
     {
 
         public static bool enabled;
+        private static Harmony harmony;
 
         // Send a response to the mod manager about the launch status, success or not.
-        static bool Load(UnityModManager.ModEntry modEntry)
+        public static bool Load(UnityModManager.ModEntry modEntry)
         {
             // modEntry.Info - Contains all fields from the 'Info.json' file.
             // modEntry.Path - The path to the mod folder e.g. '\Steam\steamapps\common\YourGame\Mods\TestMod\'.
@@ -24,12 +25,12 @@ namespace TestMod
             // modEntry.OnGUI - Called to draw UI.
             // modEntry.OnSaveGUI - Called while saving.
             // modEntry.OnUpdate - Called by MonoBehaviour.Update.
-            modEntry.OnUpdate = OnUpdate;
             // modEntry.OnLateUpdate - Called by MonoBehaviour.LateUpdate.
             // modEntry.OnFixedUpdate - Called by MonoBehaviour.FixedUpdate.
             
-            var harmony = new Harmony(modEntry.Info.Id);
+            harmony = new Harmony(modEntry.Info.Id);
             harmony.PatchAll(Assembly.GetExecutingAssembly());
+            enabled = true;
 
             return true; // If false the mod will show an error.
         }

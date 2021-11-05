@@ -6,6 +6,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{
 		Libraries\0Harmony.dll = Libraries\0Harmony.dll
 		Libraries\0Harmony.xml = Libraries\0Harmony.xml
 		Libraries\Assembly-CSharp.dll = Libraries\Assembly-CSharp.dll
+		Libraries\UnityEngine.AudioModule.dll = Libraries\UnityEngine.AudioModule.dll
 		Libraries\UnityEngine.CoreModule.dll = Libraries\UnityEngine.CoreModule.dll
 		Libraries\UnityEngine.dll = Libraries\UnityEngine.dll
 		Libraries\UnityEngine.IMGUIModule.dll = Libraries\UnityEngine.IMGUIModule.dll
@@ -13,7 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{
 		Libraries\UnityModManager.dll = Libraries\UnityModManager.dll
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestMod", "TestMod\TestMod.csproj", "{8C99CA41-4420-4880-B08E-33929C437D1F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndependentPause", "IndependentPause\IndependentPause.csproj", "{CA5CF40A-4E1F-456A-AD7C-FB3BF038B9C2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +22,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8C99CA41-4420-4880-B08E-33929C437D1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8C99CA41-4420-4880-B08E-33929C437D1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8C99CA41-4420-4880-B08E-33929C437D1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8C99CA41-4420-4880-B08E-33929C437D1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA5CF40A-4E1F-456A-AD7C-FB3BF038B9C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA5CF40A-4E1F-456A-AD7C-FB3BF038B9C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA5CF40A-4E1F-456A-AD7C-FB3BF038B9C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA5CF40A-4E1F-456A-AD7C-FB3BF038B9C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
