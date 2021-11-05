@@ -38,17 +38,19 @@ namespace TestMod
         // With this function you control an operation of the mod and inform users whether it is enabled or not.
         static bool OnToggle(UnityModManager.ModEntry modEntry, bool value /* active or inactive */)
         {
-            enabled = value;
-            modEntry.Logger.Log(Application.loadedLevelName);
-            return true; // If true, the mod will switch the state. If not, the state will not change.
-        }
-
-        static void OnUpdate(UnityModManager.ModEntry modEntry, float dt)
-        {
-            if (Input.GetKeyDown(KeyCode.F1))
+            if (enabled != value)
             {
-
+                enabled = value;
+                if (enabled)
+                {
+                    harmony.PatchAll(Assembly.GetExecutingAssembly());
+                }
+                else
+                {
+                    harmony.UnpatchAll();
+                }
             }
+            return true; // If true, the mod will switch the state. If not, the state will not change.
         }
 
     }
