@@ -5,6 +5,7 @@ using MadrugaShared;
 using DawnOfMan;
 using System.Reflection;
 using UnityEngine.Audio;
+using System.Collections.Generic;
 
 namespace IndependentPause
 {
@@ -13,35 +14,44 @@ namespace IndependentPause
     static class GameGuiManager_resumeGame_Patch
     {
 
-        static MethodInfo method_showMainPanel
-            = AccessTools.DeclaredMethod(typeof(GameGuiManager), "showMainPanel");
+        static MethodInfo propertyGetter_CurrentInstance1
+            = AccessTools.PropertyGetter(typeof(TransientSingleton<PrimalVisionManager>), "CurrentInstance");
+        static MethodInfo propertyGetter_CurrentInstance2
+            = AccessTools.PropertyGetter(typeof(TransientSingleton<GameModeManager>), "CurrentInstance");
+        static MethodInfo method_fakePause
+            = AccessTools.DeclaredMethod(typeof(TimeManager), "fakePause");
 
-        static MethodInfo method_getUnpausedAudioSnapshot
-            = AccessTools.DeclaredMethod(typeof(GameGuiManager), "getUnpausedAudioSnapshot");
-        
-        static bool Prefix(GameGuiManager __instance)
+        [HarmonyTranspiler]
+        public static IEnumerable<CodeInstruction> Transpiler(this IEnumerable<CodeInstruction> instructions)
         {
-            Traverse t = Traverse.Create(__instance);
-            if (t.Field<GuiPanel>("mGameMenu").Value != null)
+            bool omit = false;
+            foreach (var instruction in instructions)
             {
-                Singleton<GuiManager>.Instance.removePanel(t.Field<GuiPanel>("mGameMenu").Value);
+                if (!omit && (
+                        instruction.Calls(propertyGetter_CurrentInstance1) ||
+                        instruction.Calls(propertyGetter_CurrentInstance2) ||
+                        instruction.Calls(method_fakePause)
+                    ))
+                {
+                    omit = true;
+                    continue;
+                }
+                else if (omit && instruction.Is(System.Reflection.Emit.OpCodes.Nop, null))
+                {
+                    omit = false;
+                    continue;
+                }
+                if (omit)
+                {
+                    continue;
+                }
+                else
+                {
+                    yield return instruction;
+                }
             }
-            t.Field<GuiPanel>("mGameMenu").Value = null;
-            t.Field<GuiConfirmDialog>("mConfirmDialog").Value = null;
-            t.Field<GuiLoadSavePanel>("mLoadSavePanel").Value = null;
-            TransientSingleton<TimeManager>.CurrentInstance.unpause();
-            ((AudioMixerSnapshot)MethodInvoker.GetHandler(method_getUnpausedAudioSnapshot)(__instance, null)).TransitionTo(1f);
-            if (TransientSingleton<GameModeManager>.CurrentInstance.getCurrentGameMode().isPauseAllowed())
-            {
-                TransientSingleton<TimeManager>.CurrentInstance.fakePause();
-            }
-            if (TransientSingleton<Selection>.CurrentInstance.getCount() == 0)
-            {
-                MethodInvoker.GetHandler(method_showMainPanel)(__instance, null);
-            }
-            __instance.requestRefresh();
-            return false;
         }
+
     }
 
 }

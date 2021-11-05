@@ -4,6 +4,7 @@ using UnityEngine;
 using MadrugaShared;
 using DawnOfMan;
 using System.Reflection;
+using System.Collections.Generic;
 
 namespace IndependentPause
 {
@@ -12,18 +13,36 @@ namespace IndependentPause
     static class PrimalVisionManager_enable_Patch
     {
 
-        static FieldInfo fi_mPostEffectMaterial
-            = AccessTools.DeclaredField(typeof(PrimalVisionManager), "mPostEffectMaterial");
+        static MethodInfo propertyGetter_CurrentInstance
+            = AccessTools.PropertyGetter(typeof(TransientSingleton<>), "CurrentInstance");
 
-        static bool Prefix(PrimalVisionManager __instance)
+        [HarmonyTranspiler]
+        public static IEnumerable<CodeInstruction> Transpiler(this IEnumerable<CodeInstruction> instructions)
         {
-            Singleton<MusicPlayer>.Instance.pause();
-            Singleton<SfxPlayer>.Instance.play2D(AudioList<AudioListGameUi>.Instance.PrimalVisionEnable);
-            PostEffectBehaviour.enable((Material)fi_mPostEffectMaterial.GetValue(__instance));
-            __instance.setTransition(0f);
-            AudioSetup.Instance.PrimalVisionSnapshot.TransitionTo(0.5f);
-            return false;
+            bool omit = false;
+            foreach (var instruction in instructions)
+            {
+                if (!omit && instruction.Calls(propertyGetter_CurrentInstance))
+                {
+                    omit = true;
+                    continue;
+                }
+                else if (omit && instruction.Is(System.Reflection.Emit.OpCodes.Nop, null))
+                {
+                    omit = false;
+                    continue;
+                }
+                else if (omit)
+                {
+                    continue;
+                }
+                else
+                {
+                    yield return instruction;
+                }
+            }
         }
+
     }
 
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 using MadrugaShared;
 using DawnOfMan;
 using System.Reflection;
+using System.Collections.Generic;
 
 namespace IndependentPause
 {
@@ -12,14 +13,30 @@ namespace IndependentPause
     static class GuiTradePanel_onClose_Patch
     {
 
-        static MethodInfo method_clear
-            = AccessTools.DeclaredMethod(typeof(PrimalVisionManager), "clear");
+        static MethodInfo propertyGetter_CurrentInstance
+            = AccessTools.PropertyGetter(typeof(TransientSingleton<>), "CurrentInstance");
 
-        static bool Prefix(GuiTradePanel __instance)
+        [HarmonyTranspiler]
+        public static IEnumerable<CodeInstruction> Transpiler(this IEnumerable<CodeInstruction> instructions)
         {
-            MethodInvoker.GetHandler(method_clear)(__instance, null);
-            return false;
+            bool omit = false;
+            foreach (var instruction in instructions)
+            {
+                omit =
+                    instruction.Calls(propertyGetter_CurrentInstance) ||
+                    (omit && !instruction.Is(System.Reflection.Emit.OpCodes.Ret, null));
+
+                if (omit)
+                {
+                    continue;
+                }
+                else
+                {
+                    yield return instruction;
+                }
+            }
         }
+
     }
 
 }
