@@ -24,7 +24,7 @@ namespace IndependentPause
             {
                 omit =
                     instruction.Calls(propertyGetter_CurrentInstance) ||
-                    (omit && !instruction.Is(System.Reflection.Emit.OpCodes.Ret, null));
+                    (omit && !(instruction.opcode == System.Reflection.Emit.OpCodes.Ret));
 
                 if (omit)
                 {

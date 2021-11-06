@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using HarmonyLib;
 using UnityEngine;
 using MadrugaShared;
@@ -34,12 +35,10 @@ namespace IndependentPause
                     ))
                 {
                     omit = true;
-                    continue;
                 }
-                else if (omit && instruction.Is(System.Reflection.Emit.OpCodes.Nop, null))
+                else if (omit && (instruction.opcode == System.Reflection.Emit.OpCodes.Nop))
                 {
                     omit = false;
-                    continue;
                 }
                 if (omit)
                 {
