@@ -6,26 +6,24 @@ using DawnOfMan;
 using System.Reflection;
 using System.Collections.Generic;
 
-namespace IndependentPause
-{
+namespace IndependentPause {
 
     [HarmonyPatch(typeof(GuiTradePanel), "init", MethodType.Normal)]
-    static class GuiTradePanel_init_Patch
-    {
-
-        static MethodInfo method_realPause
-            = AccessTools.DeclaredMethod(typeof(TimeManager), "realPause");
+    static class GuiTradePanel_init_Patch {
 
         [HarmonyTranspiler]
-        public static IEnumerable<CodeInstruction> Transpiler_removeRealPause(this IEnumerable<CodeInstruction> instructions)
-        {
-            foreach (var instruction in instructions)
-            {
-                if (instruction.Calls(method_realPause))
-                {
+        public static IEnumerable<CodeInstruction> Transpiler_removeRealPause(this IEnumerable<CodeInstruction> instructions) {
+            MethodInfo propertyGetter_CurrentInstance
+               = AccessTools.PropertyGetter(typeof(TransientSingleton<TimeManager>), "CurrentInstance");
+            MethodInfo method_realPause
+               = AccessTools.DeclaredMethod(typeof(TimeManager), "realPause");
+            foreach (var instruction in instructions) {
+                if (instruction.Calls(propertyGetter_CurrentInstance) || instruction.Calls(method_realPause)) {
                     continue;
                 }
-                yield return instruction;
+                else {
+                    yield return instruction;
+                }
             }
         }
     }

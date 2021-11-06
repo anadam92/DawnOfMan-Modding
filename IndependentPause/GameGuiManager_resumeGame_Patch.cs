@@ -15,31 +15,34 @@ namespace IndependentPause
     static class GameGuiManager_resumeGame_Patch
     {
 
-        static MethodInfo propertyGetter_CurrentInstance1
-            = AccessTools.PropertyGetter(typeof(TransientSingleton<PrimalVisionManager>), "CurrentInstance");
-        static MethodInfo propertyGetter_CurrentInstance2
-            = AccessTools.PropertyGetter(typeof(TransientSingleton<GameModeManager>), "CurrentInstance");
-        static MethodInfo method_fakePause
-            = AccessTools.DeclaredMethod(typeof(TimeManager), "fakePause");
-
         [HarmonyTranspiler]
         public static IEnumerable<CodeInstruction> Transpiler(this IEnumerable<CodeInstruction> instructions)
         {
+            MethodInfo propertyGetter_CurrentInstance
+                = AccessTools.PropertyGetter(typeof(TransientSingleton<PrimalVisionManager>), "CurrentInstance");
+            MethodInfo method_fakePause
+                = AccessTools.DeclaredMethod(typeof(TimeManager), "fakePause");
+            IEnumerable<Predicate<CodeInstruction>> codeAnchors = new Predicate<CodeInstruction>[]{
+                new Predicate<CodeInstruction>(ci => ci.Calls(propertyGetter_CurrentInstance)),
+                new Predicate<CodeInstruction>(ci => ci.Calls(method_fakePause)),
+                new Predicate<CodeInstruction>(ci => ci.opcode == System.Reflection.Emit.OpCodes.Nop)
+            };
+            IEnumerator<Predicate<CodeInstruction>> enumerator_codeAnchors = codeAnchors.GetEnumerator();
+            enumerator_codeAnchors.MoveNext();
             bool omit = false;
+            bool stop = false;
             foreach (var instruction in instructions)
             {
-                if (!omit && (
-                        instruction.Calls(propertyGetter_CurrentInstance1) ||
-                        instruction.Calls(propertyGetter_CurrentInstance2) ||
-                        instruction.Calls(method_fakePause)
-                    ))
+                if (!stop && enumerator_codeAnchors.Current.Invoke(instruction))
                 {
                     omit = true;
+                    stop = !enumerator_codeAnchors.MoveNext();
                 }
-                else if (omit && (instruction.opcode == System.Reflection.Emit.OpCodes.Nop))
+                else if (stop)
                 {
                     omit = false;
                 }
+
                 if (omit)
                 {
                     continue;
