@@ -1,0 +1,8 @@
+﻿{
+	"Id": "anadam92.MoreInputKeys",
+	"DisplayName": "More Input Keys",
+	"Author": "anadam92",
+	"Version": "1.0.0",
+	"AssemblyName": "MoreInputKeys.dll",
+	"EntryMethod": "MoreInputKeys.Main.Load"
+}
