@@ -19,6 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndependentPause", "IndependentPause\IndependentPause.csproj", "{CA5CF40A-4E1F-456A-AD7C-FB3BF038B9C2}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoreInputKeys", "MoreInputKeys\MoreInputKeys.csproj", "{B7126C79-ED4F-46A6-A604-33105224933E}"
 EndProject
 Global
@@ -31,10 +32,10 @@ Global
 		{CA5CF40A-4E1F-456A-AD7C-FB3BF038B9C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA5CF40A-4E1F-456A-AD7C-FB3BF038B9C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA5CF40A-4E1F-456A-AD7C-FB3BF038B9C2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8C99CA41-4420-4880-B08E-33929C437D1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8C99CA41-4420-4880-B08E-33929C437D1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8C99CA41-4420-4880-B08E-33929C437D1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8C99CA41-4420-4880-B08E-33929C437D1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7126C79-ED4F-46A6-A604-33105224933E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7126C79-ED4F-46A6-A604-33105224933E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7126C79-ED4F-46A6-A604-33105224933E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7126C79-ED4F-46A6-A604-33105224933E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
