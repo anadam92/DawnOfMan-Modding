@@ -3,6 +3,7 @@
 	"DisplayName": "Independent Pause",
 	"Author": "anadam92",
 	"Version": "2.0.0",
+	"ManagerVersion": "0.24.0",
 	"AssemblyName": "IndependentPause.dll",
 	"EntryMethod": "IndependentPause.Main.Load"
 }
