@@ -22,6 +22,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndependentPause", "Indepen
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoreInputKeys", "MoreInputKeys\MoreInputKeys.csproj", "{B7126C79-ED4F-46A6-A604-33105224933E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CameraHigh", "CameraHigh\CameraHigh.csproj", "{B753A5CC-3991-4888-ABFB-E25591CDB4A9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +38,10 @@ Global
 		{B7126C79-ED4F-46A6-A604-33105224933E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7126C79-ED4F-46A6-A604-33105224933E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7126C79-ED4F-46A6-A604-33105224933E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B753A5CC-3991-4888-ABFB-E25591CDB4A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B753A5CC-3991-4888-ABFB-E25591CDB4A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B753A5CC-3991-4888-ABFB-E25591CDB4A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B753A5CC-3991-4888-ABFB-E25591CDB4A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

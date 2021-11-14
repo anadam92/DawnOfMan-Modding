@@ -1,0 +1,9 @@
+﻿{
+	"Id": "anadam92.CameraHigh",
+	"DisplayName": "Camera High",
+	"Author": "anadam92",
+	"Version": "1.0.0",
+	"ManagerVersion": "0.24.0",
+	"AssemblyName": "CameraHigh.dll",
+	"EntryMethod": "CameraHigh.Main.Load"
+}
