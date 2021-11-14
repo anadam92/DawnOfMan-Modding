@@ -24,6 +24,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoreInputKeys", "MoreInputK
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CameraHigh", "CameraHigh\CameraHigh.csproj", "{B753A5CC-3991-4888-ABFB-E25591CDB4A9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RaiderAlert", "RaiderAlert\RaiderAlert.csproj", "{4FE34C15-B62B-4A04-9851-215C617F53BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnableDevelopmentScenarios", "EnableDevelopmentScenarios\EnableDevelopmentScenarios.csproj", "{541EDD25-9156-4A08-8AAC-0CA25BA92E58}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IncreaseChartUpdateSpeed", "IncreaseChartUpdateSpeed\IncreaseChartUpdateSpeed.csproj", "{B45E1F63-4C72-4807-8E83-6017A1930BE3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OutputGeneratedTerrain", "OutputGeneratedTerrain\OutputGeneratedTerrain.csproj", "{49DE3E3B-0EEB-484F-A8EB-3D22539088BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OutputXmlResources", "OutputXmlResources\OutputXmlResources.csproj", "{83AA84DD-E7C3-4F2E-84EA-DF3ABC18C00F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +52,26 @@ Global
 		{B753A5CC-3991-4888-ABFB-E25591CDB4A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B753A5CC-3991-4888-ABFB-E25591CDB4A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B753A5CC-3991-4888-ABFB-E25591CDB4A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FE34C15-B62B-4A04-9851-215C617F53BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FE34C15-B62B-4A04-9851-215C617F53BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FE34C15-B62B-4A04-9851-215C617F53BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FE34C15-B62B-4A04-9851-215C617F53BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{541EDD25-9156-4A08-8AAC-0CA25BA92E58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{541EDD25-9156-4A08-8AAC-0CA25BA92E58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{541EDD25-9156-4A08-8AAC-0CA25BA92E58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{541EDD25-9156-4A08-8AAC-0CA25BA92E58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B45E1F63-4C72-4807-8E83-6017A1930BE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B45E1F63-4C72-4807-8E83-6017A1930BE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B45E1F63-4C72-4807-8E83-6017A1930BE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B45E1F63-4C72-4807-8E83-6017A1930BE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49DE3E3B-0EEB-484F-A8EB-3D22539088BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49DE3E3B-0EEB-484F-A8EB-3D22539088BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49DE3E3B-0EEB-484F-A8EB-3D22539088BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49DE3E3B-0EEB-484F-A8EB-3D22539088BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83AA84DD-E7C3-4F2E-84EA-DF3ABC18C00F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83AA84DD-E7C3-4F2E-84EA-DF3ABC18C00F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83AA84DD-E7C3-4F2E-84EA-DF3ABC18C00F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83AA84DD-E7C3-4F2E-84EA-DF3ABC18C00F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

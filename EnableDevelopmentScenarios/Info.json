@@ -1,0 +1,9 @@
+{
+	"Id": "anadam92.EnableDevelopmentScenarios",
+	"DisplayName": "Enable Development Scenarios",
+	"Author": "anadam92",
+	"Version": "1.0.0",
+	"ManagerVersion": "0.24.0",
+	"AssemblyName": "EnableDevelopmentScenarios.dll",
+	"EntryMethod": "EnableDevelopmentScenarios.Main.Load"
+}

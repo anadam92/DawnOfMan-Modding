@@ -1,0 +1,9 @@
+{
+	"Id": "anadam92.IncreaseChartUpdateSpeed",
+	"DisplayName": "Increase Chart Update Speed",
+	"Author": "anadam92",
+	"Version": "1.0.0",
+	"ManagerVersion": "0.24.0",
+	"AssemblyName": "IncreaseChartUpdateSpeed.dll",
+	"EntryMethod": "IncreaseChartUpdateSpeed.Main.Load"
+}

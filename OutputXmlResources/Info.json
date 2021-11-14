@@ -1,0 +1,9 @@
+{
+	"Id": "anadam92.OutputXmlResources",
+	"DisplayName": "Extract Xml Resources",
+	"Author": "anadam92",
+	"Version": "1.0.0",
+	"ManagerVersion": "0.24.0",
+	"AssemblyName": "OutputXmlResources.dll",
+	"EntryMethod": "OutputXmlResources.Main.Load"
+}

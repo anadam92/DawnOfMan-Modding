@@ -1,0 +1,9 @@
+{
+	"Id": "anadam92.OutputGeneratedTerrain",
+	"DisplayName": "Output Generated Terrain",
+	"Author": "anadam92",
+	"Version": "1.0.0",
+	"ManagerVersion": "0.24.0",
+	"AssemblyName": "OutputGeneratedTerrain.dll",
+	"EntryMethod": "OutputGeneratedTerrain.Main.Load"
+}

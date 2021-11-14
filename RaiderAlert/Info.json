@@ -1,0 +1,9 @@
+{
+	"Id": "anadam92.RaiderAlert",
+	"DisplayName": "Raider Alert",
+	"Author": "anadam92",
+	"Version": "1.0.0",
+	"ManagerVersion": "0.24.0",
+	"AssemblyName": "RaiderAlert.dll",
+	"EntryMethod": "RaiderAlert.Main.Load"
+}
