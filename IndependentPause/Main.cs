@@ -1,8 +1,13 @@
-﻿using System;
-using HarmonyLib;
+﻿using Planetbase;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using UnityEngine;
-using UnityModManagerNet;
 using System.Reflection;
+using UnityModManagerNet;
+using HarmonyLib;
+
 
 namespace IndependentPause {
 
@@ -24,17 +29,17 @@ namespace IndependentPause {
 
         static bool doPatching(bool patch = true) {
             bool result = true;
-            try {
+//            try {
                 if (patch) {
                     harmony.PatchAll(Assembly.GetExecutingAssembly());
                 }
                 else {
                     harmony.UnpatchAll();
                 }
-            }
-            catch (Exception) {
-                result = false;
-            }
+//            }
+//            catch (Exception) {
+//                result = false;
+//            }
             return result;
         }
 
@@ -57,5 +62,4 @@ namespace IndependentPause {
         }
 
     }
-
 }
