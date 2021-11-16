@@ -43,35 +43,44 @@ namespace CameraHigh {
             // UPDATE position transform
             if (Mathf.Abs(ay) > CameraHigh.MinDisplacement) {
                 float num2 = Mathf.Clamp(CameraHigh.ZoomStep * timeStep * heightFactor, 0.01f, 100f);
-                float num3 = Mathf.Clamp(currentHeight + ay * num2, CameraHigh.MinHeight, CameraHigh.MaxHeight);
-                az += (currentHeight - num3) / num2;
-                mCamera.setCurrentHeight(num3);
+                float newHeight = Mathf.Clamp(currentHeight + ay * num2, CameraHigh.MinHeight, CameraHigh.MaxHeight);
+                az += (currentHeight - newHeight) / num2;
+                mCamera.setCurrentHeight(newHeight);
                 cmip.refreshVerticalRotation(__instance, new object[] { });
-                flag = true;
+                flag |= true;
             }
             if (Mathf.Abs(az) > CameraHigh.MinDisplacement) {
-                transform.position = transform.position + MathUtil.flatten(transform.forward) * az * timeStep * CameraHigh.TranslationStep * heightFactor;
-                flag = true;
+                Vector3 direction = MathUtil.flatten(transform.forward).normalized;
+                if (direction .Equals(Vector3.zero)) {
+                    direction = MathUtil.flatten(transform.up).normalized;
+                }
+                transform.position = transform.position + direction * az * timeStep * CameraHigh.TranslationStep * heightFactor;
+                flag |= true;
             }
             if (Mathf.Abs(ax) > CameraHigh.MinDisplacement) {
-                transform.position = transform.position + MathUtil.flatten(transform.right) * ax * timeStep * CameraHigh.TranslationStep * heightFactor;
-                flag = true;
+                Vector3 direction = MathUtil.flatten(transform.right).normalized;
+                if (direction.Equals(Vector3.zero)) {
+                    direction = MathUtil.flatten(transform.up).normalized;
+                }
+                direction = direction.normalized;
+                transform.position = transform.position + direction * ax * timeStep * CameraHigh.TranslationStep * heightFactor;
+                flag |= true;
             }
             if (Mathf.Abs(cmip.mRotationAcceleration) > 0.01f) {
                 transform.RotateAround(transform.position, Constants.Vector3Up, cmip.mRotationAcceleration * timeStep * CameraHigh.RotationStep);
-                flag = true;
+                flag |= true;
             }
             if (Mathf.Abs(cmip.mOrbitAcceleration) > 0.01f) {
                 float newOrbitRotationAngleChange = (0f - cmip.mOrbitAcceleration) * timeStep * CameraHigh.RotationStep;
                 transform.RotateAround(transform.position + transform.forward * currentHeight * 1.5f, Constants.Vector3Up, newOrbitRotationAngleChange);
-                flag = true;
+                flag |= true;
             }
             if (Mathf.Abs(cmip.mPitchAcceleration) > 0.001f) {
                 float newPitchRotationAngleChange = (0f - cmip.mPitchAcceleration) * timeStep * CameraHigh.ZoomStep;
                 float currentPitch = Mathf.Clamp(mCamera.getCurrentPitch() + newPitchRotationAngleChange, CameraHigh.MinPitch, CameraHigh.MaxPitch);
                 mCamera.setCurrentPitch(currentPitch);
                 cmip.refreshVerticalRotation(__instance, new object[] { });
-                flag = true;
+                flag |= true;
             }
 
             // BOUND CAMERA DISPLACEMENT HORIZONTALLY (X, Z)
