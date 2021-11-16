@@ -20,3 +20,11 @@ It uses [UMM](https://github.com/newman55/unity-mod-manager) for modding assista
   Creates a sub-folder named "OutputXmlResources_Data" in the game main folder (%userprofile%\Documents\DawnOfMan) and outputs there built-in xml data. Useful for finding all the numeric parameters of the gameplay.
 - ### RaiderAlert  
   Automatically turns on Alert when a raider attack is launched and also when tension starts. Normally the player gets notified about the raider attack when tension starts, but raiders appear on a size of the map long before.
+
+## Usage
+To use these mods:
+1. [Install UMM](https://www.nexusmods.com/site/mods/21)
+2. Download a release from this repository. [1.0.0](https://github.com/anadam92/DawnOfMan-Modding/releases/download/1.0.0/DawnOfMan_mods_umm.7z)
+3. Drag & Drop the mods (zip files) you want in the "Mods" tab of UMM.
+
+While playing press Ctrl+F10 to toggle on/off any mod.
